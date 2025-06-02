@@ -10,7 +10,7 @@ local function getproperties(instance)
     local property_structure = {}
     for i,v in pairs(json_to_luatbl(json)) do
         if v.Class == instance.ClassName and v.type == "Property" then
-            property_structure[#property_structure+1] = v.Name
+            property_structure[v.Name] = instance[v.Name]
         end
     end
     return property_structure
